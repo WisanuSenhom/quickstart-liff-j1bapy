@@ -32,10 +32,6 @@ async function main() {
     case "android": body.style.backgroundColor = "#d1f5d3"; break
     case "ios": body.style.backgroundColor = "#eeeeee"; break
   }
-}
-main()
-
-async function main() {
   // ...
   if (!liff.isInClient()) {
     if (liff.isLoggedIn()) {
