@@ -26,7 +26,26 @@ const friendShip = document.getElementById("friendShip")
 
 async function main() {
   // Initialize LIFF app)
-  
+  await liff.init({ liffId: "2000472605-2eEV4VQo" })
   // Try a LIFF function
+  switch (liff.getOS()) {
+    case "android": body.style.backgroundColor = "#d1f5d3"; break
+    case "ios": body.style.backgroundColor = "#eeeeee"; break
+  }
 }
 main()
+
+async function main() {
+  // ...
+  getUserProfile()
+}
+
+async function getUserProfile() {
+  const profile = await liff.getProfile()
+  pictureUrl.src = profile.pictureUrl
+  userId.innerHTML = "<b>userId:</b> " + profile.userId
+  statusMessage.innerHTML = "<b>statusMessage:</b> " + profile.statusMessage
+  displayName.innerHTML = "<b>displayName:</b> " + profile.displayName
+  email.innerHTML = "<b>email:</b> " + liff.getDecodedIDToken().email
+
+}
